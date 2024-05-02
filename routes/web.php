@@ -7,6 +7,9 @@ Route::namespace('App\Http\Controllers')->group(function () {
     Route::get('/login', 'LoginController@index')->name('login')->middleware('guest');
     Route::post('/login', 'LoginController@login');
 
+    // صفحة الخروج
+    Route::get('/logout', 'LoginController@index')->name('logout')->middleware('auth');
+
     // صفحة تسجيل زبون جديد
     Route::get('/register', 'RegisterController@index')->name('register');
 
@@ -15,7 +18,7 @@ Route::namespace('App\Http\Controllers')->group(function () {
         Route::middleware('admin')->name('admin.')->prefix('admin')->namespace('Admin')->group(function () {
             Route::get('/', 'HomeController@index')->name('home');
 
-            Route::resource('users', 'UserController');
+            Route::resource('admins', 'AdminController');
             Route::resource('clients', 'ClientController');
             Route::resource('farmers', 'FarmerController');
             Route::resource('products', 'ProductController');
