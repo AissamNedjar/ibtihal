@@ -17,7 +17,7 @@ class AdminSeeder extends Seeder
             'name' => 'Ibitihal Bouauni',
             'email' => 'ibtihal@gmail.com',
             'phone' => '0669391836',
-            'password' => bcrypt('01020304'),
+            'password' => '01020304'
         ]);
     }
 }

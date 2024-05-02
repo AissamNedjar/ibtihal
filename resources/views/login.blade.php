@@ -26,7 +26,7 @@
                     @endif
                   <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Adresse e-mail</label>
-                    <input type="email" class="form-control" name="email">
+                    <input type="email" class="form-control" name="email" value="{{ old('email') }}">
                   </div>
                   <div class="mb-4">
                     <label for="exampleInputPassword1" class="form-label">Mot de passe</label>

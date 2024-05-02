@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Foundation\Application;
+use App\Http\Middleware\AdminMiddleware;
+use App\Http\Middleware\ClientMiddleware;
+use App\Http\Middleware\FarmerMiddleware;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 
@@ -11,7 +14,20 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+
+        // للتأكد من أن مسجل الدخول في المكان الصحيح
+
+        $middleware->alias([
+            'admin' => AdminMiddleware::class,
+            'client' => ClientMiddleware::class,
+            'farmer' => FarmerMiddleware::class,
+        ]);
+    })
+    ->WithMiddleware(function (Middleware $middleware) {
+        // في حالة كان المتصل مسجل الدخول وذهب الى صفحة الدخول مجددا يتم تحويله الى الصفحة الرئيسية
+        $middleware->redirectTo(
+            users: '/home',
+        );
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
