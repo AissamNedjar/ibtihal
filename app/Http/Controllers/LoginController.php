@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -10,6 +12,8 @@ class LoginController extends Controller
     {
         return view('login');
     }
+
+    // تسجيل الدخول
 
     public function login(Request $request)
     {
@@ -20,12 +24,16 @@ class LoginController extends Controller
             return redirect()->route($role . '.home');
         }
 
-        return redirect()->route('login')->with('error', 'Invalid credentials');
+        return redirect()->route('login')->with('error', 'Les informations d\'identification sont incorrectes.');
     }
 
-    public function logout()
+    // الخروج
+
+    public function logout(Request $request)
     {
-        auth()->logout();
+        Auth::guard('web')->logout();
+        $request->session()->invalidate();
+
         return redirect()->route('login');
     }
 }

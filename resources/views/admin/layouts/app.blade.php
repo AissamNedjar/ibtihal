@@ -44,7 +44,7 @@
             </li>
             <li class="sidebar-item">
               <a class="sidebar-link" href="{{ route('admin.clients.index') }}" aria-expanded="false">
-                <span>dollar"></i>
+                <span>
                   <i class="ti ti-user"></i>
                 </span>
                 <span class="hide-menu">Les clients</span>
@@ -91,15 +91,15 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <form action="{{ route('logout') }}" method="post" id="form" style="display: none;">
-                @csrf
-              </form> 
-              <a class="sidebar-link" href="{{ route('logout') }}" onclick="form.submit()" aria-expanded="false">
+              <a class="sidebar-link" href="javascript:void(0)" onclick="form.submit()" aria-expanded="false">
                 <span>
                   <i class="ti ti-lock"></i>
                 </span>
                 <span class="hide-menu">Déconnexion !</span>
               </a>
+              <form action="{{ route('logout') }}" method="post" id="form" style="display: none;">
+                @csrf
+              </form> 
             </li>
           </ul>
         </nav>

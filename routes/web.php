@@ -8,7 +8,7 @@ Route::namespace('App\Http\Controllers')->group(function () {
     Route::post('/login', 'LoginController@login');
 
     // صفحة الخروج
-    Route::get('/logout', 'LoginController@index')->name('logout')->middleware('auth');
+    Route::post('/logout', 'LoginController@index')->name('logout')->middleware('auth');
 
     // صفحة تسجيل زبون جديد
     Route::get('/register', 'RegisterController@index')->name('register');
