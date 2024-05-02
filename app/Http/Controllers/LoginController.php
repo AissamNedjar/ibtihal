@@ -17,7 +17,7 @@ class LoginController extends Controller
 
         if (auth()->attempt($credentials)) {
             $role = auth()->user()->role;
-            return redirect()->route($role);
+            return redirect()->route($role . '.home');
         }
 
         return redirect()->route('login')->with('error', 'Invalid credentials');
