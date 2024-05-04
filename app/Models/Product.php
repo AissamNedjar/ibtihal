@@ -10,6 +10,8 @@ class Product extends Model
     protected $fillable = [
         'user_id',
         'title',
+        'price',
+        'quantity',
         'description',
         'images',
         'is_accepted',
@@ -22,8 +24,8 @@ class Product extends Model
         ];
     }
 
-    public function user()
+    public function farmer()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

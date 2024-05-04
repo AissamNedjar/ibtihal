@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+
 class ClientController extends Controller
 {
     public function index()
@@ -15,7 +16,7 @@ class ClientController extends Controller
 
     public function create()
     {
-        return view('client.clients.create');
+        return view('admin.clients.create');
     }
 
     public function store(Request $request)
@@ -35,21 +36,21 @@ class ClientController extends Controller
         $client->password = $request->password;
         $client->save();
 
-        return redirect()->route('client.clients.index');
+        return redirect()->route('admin.clients.index');
     }
 
     public function show($id)
     {
         $client = User::where('role', 'client')->findOrFail($id);
 
-        return view('client.clients.show', ['client' => $client]);
+        return view('admin.clients.show', ['client' => $client]);
     }
 
     public function edit($id)
     {
         $client = User::where('role', 'client')->findOrFail($id);
 
-        return view('client.clients.edit', ['client' => $client]);
+        return view('admin.clients.edit', ['client' => $client]);
     }
 
     public function update(Request $request, $id)
@@ -72,18 +73,15 @@ class ClientController extends Controller
 
         $client->update();
 
-        return redirect()->route('client.clients.index');
+        return redirect()->route('admin.clients.index');
     }
 
     public function destroy($id)
     {
-        if ($id == 1) {
-            return redirect()->route('client.clients.index');
-        }
         $client = User::where('role', 'client')->findOrFail($id);
         $client->delete();
 
-        return redirect()->route('client.clients.index');
+        return redirect()->route('admin.clients.index');
     }
 }
 

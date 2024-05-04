@@ -22,6 +22,7 @@
             <td>{{ $admin->email }}</td>
             <td>{{ $admin->phone }}</td>
             <td>
+                <a href="{{ route('admin.admins.show', $admin->id) }}" class="btn btn-primary">Voir</a>
                 <a href="{{ route('admin.admins.edit', $admin->id) }}" class="btn btn-primary">Modifier</a>
                 <form action="{{ route('admin.admins.destroy', $admin->id) }}" method="POST" style="display: inline;">
                     @csrf

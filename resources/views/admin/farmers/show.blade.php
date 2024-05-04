@@ -12,9 +12,9 @@
     </thead>
     <tbody>
         <tr>
-            <td>{{ $admin->name }}</td>
-            <td>{{ $admin->email }}</td>
-            <td>{{ $admin->phone }}</td>
+            <td>{{ $farmer->name }}</td>
+            <td>{{ $farmer->email }}</td>
+            <td>{{ $farmer->phone }}</td>
         </tr>
     </tbody>
 </table>

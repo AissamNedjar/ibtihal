@@ -2,7 +2,7 @@
 
 @section('content')
 
-<button type="button" class="btn btn-primary" onclick="window.location='{{ route('admin.clients.create') }}'">Ajouter un client </button>
+<button type="button" class="btn btn-primary" onclick="window.location='{{ route('admin.clients.create') }}'">Ajouter un client</button>
 
 <table class="table table-striped">
     <thead>
@@ -15,15 +15,16 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($clients as $admin)
+        @foreach($clients as $client)
         <tr>
-            <th scope="row">{{ $admin->id }}</th>
-            <td>{{ $admin->name }}</td>
-            <td>{{ $admin->email }}</td>
-            <td>{{ $admin->phone }}</td>
+            <th scope="row">{{ $client->id }}</th>
+            <td>{{ $client->name }}</td>
+            <td>{{ $client->email }}</td>
+            <td>{{ $client->phone }}</td>
             <td>
-                <a href="{{ route('admin.clients.edit', $admin->id) }}" class="btn btn-primary">Modifier</a>
-                <form action="{{ route('admin.clients.destroy', $admin->id) }}" method="POST" style="display: inline;">
+                <a href="{{ route('admin.clients.show', $client->id) }}" class="btn btn-primary">Voir</a>
+                <a href="{{ route('admin.clients.edit', $client->id) }}" class="btn btn-primary">Modifier</a>
+                <form action="{{ route('admin.clients.destroy', $client->id) }}" method="POST" style="display: inline;">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger">Supprimer</button>

@@ -21,7 +21,12 @@ Route::namespace('App\Http\Controllers')->group(function () {
             Route::resource('admins', 'AdminController');
             Route::resource('clients', 'ClientController');
             Route::resource('farmers', 'FarmerController');
-            Route::resource('products', 'ProductController');
+
+            // التحكم بالمنتجات من قبل الإدارة
+            Route::resource('products', 'ProductController')->except(['create', 'store', 'edit']);
+            Route::get('products/{product}/approve', 'ProductController@approve')->name('products.approve');
+            Route::get('products/{product}/reject', 'ProductController@reject')->name('products.reject');
+
             Route::resource('ads', 'AdsController');
             Route::resource('activities', 'ActivityController');
             Route::resource('offers', 'OfferController');

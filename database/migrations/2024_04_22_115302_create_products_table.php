@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('title');
+            $table->float('price');
+            $table->integer('quantity');
             $table->longText('description');
             $table->longText('images');
             $table->boolean('is_accepted')->default(false);
