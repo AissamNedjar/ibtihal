@@ -11,12 +11,9 @@
 </head>
 
 <body>
-  <!--  Body Wrapper -->
   <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
     data-sidebar-position="fixed" data-header-position="fixed">
-    <!-- Sidebar Start -->
     <aside class="left-sidebar">
-      <!-- Sidebar scroll-->
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
             <h4 class="fw-bold">Agricultural community</h4>
@@ -103,16 +100,11 @@
             </li>
           </ul>
         </nav>
-        <!-- End Sidebar navigation -->
       </div>
-      <!-- End Sidebar scroll-->
     </aside>
-    <!--  Sidebar End -->
-    <!--  Main wrapper -->
     <div class="body-wrapper">
       <div class="container-fluid">
         @yield('content')
-
         <div class="py-6 px-6 text-center">
           <p class="mb-0 fs-4">Ibithal Bouaouni - Naoures Chaibi</p>
         </div>
