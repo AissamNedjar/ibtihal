@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('status');
             $table->date('date_start');
             $table->date('date_end')->nullable();
+            $table->boolean('is_accepted')->default(false);
             $table->timestamps();
         });
     }

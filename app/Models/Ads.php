@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Casts\JsonCast;
 use Illuminate\Database\Eloquent\Model;
 
 class Ads extends Model
@@ -14,13 +13,6 @@ class Ads extends Model
         'images',
         'is_accepted',
     ];
-
-    protected function casts(): array
-    {
-        return [
-            'images' => JsonCast::class,
-        ];
-    }
 
     public function user()
     {

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('quantity');
             $table->longText('description');
             $table->longText('images');
+            $table->enum('type', ['rent', 'sale', 'both']);
             $table->boolean('is_accepted')->default(false);
             $table->timestamps();
         });

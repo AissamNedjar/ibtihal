@@ -12,6 +12,7 @@ class Activity extends Model
         'status',
         'date_start',
         'date_end',
+        'is_accepted',
     ];
 
     public function user()
