@@ -9,15 +9,15 @@ class OffreController extends Controller
 {
     public function index()
     {
-        $offers = Offre::all();
-        return view('admin.offers.index', ['offers' => $offers]);
+        $offres = Offre::all();
+        return view('admin.offres.index', ['offres' => $offres]);
     }
 
     public function show($id)
     {
         $offre = Offre::findOrFail($id);
 
-        return view('admin.offers.show', ['offre' => $offre]);
+        return view('admin.offres.show', ['offre' => $offre]);
     }
 
     public function approve($id)
@@ -26,7 +26,7 @@ class OffreController extends Controller
         $offre->is_accepted = 1;
         $offre->save();
 
-        return redirect()->route('admin.offers.index');
+        return redirect()->route('admin.offres.index');
     }
 
     public function reject($id)
@@ -35,7 +35,7 @@ class OffreController extends Controller
         $offre->is_accepted = 2;
         $offre->save();
 
-        return redirect()->route('admin.offers.index');
+        return redirect()->route('admin.offres.index');
     }
 
     public function destroy($id)
@@ -43,6 +43,6 @@ class OffreController extends Controller
         $offre = Offre::findOrFail($id);
         $offre->delete();
 
-        return redirect()->route('admin.offers.index');
+        return redirect()->route('admin.offres.index');
     }
 }

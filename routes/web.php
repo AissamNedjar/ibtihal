@@ -43,9 +43,26 @@ Route::namespace('App\Http\Controllers')->group(function () {
             Route::get('activities/{activity}/reject', 'ActivityController@reject')->name('activities.reject');
 
             // التحكم بالعروض
-            Route::resource('offers', 'OfferController');
-            Route::get('offers/{offer}/approve', 'OfferController@approve')->name('offers.approve');
-            Route::get('offers/{offer}/reject', 'OfferController@reject')->name('offers.reject');
+            Route::resource('offres', 'OffreController');
+            Route::get('offres/{offer}/approve', 'OffreController@approve')->name('offres.approve');
+            Route::get('offres/{offer}/reject', 'OffreController@reject')->name('offres.reject');
+        });
+
+        // صفحات الفلاحين
+        Route::middleware('farmer')->name('farmer.')->prefix('farmer')->namespace('Farmer')->group(function () {
+            Route::get('/', 'HomeController@index')->name('home');
+
+            // التحكم بالمنتجات
+            Route::resource('products', 'ProductController');
+
+            // التحكم بالإعلانات
+            Route::resource('ads', 'AdsController');
+
+            // التحكم بالأنشطة
+            Route::resource('activities', 'ActivityController');
+
+            // التحكم بالعروض
+            Route::resource('offres', 'OffreController');
         });
     });
 });

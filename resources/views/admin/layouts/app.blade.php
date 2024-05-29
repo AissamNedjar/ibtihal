@@ -80,7 +80,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="{{ route('admin.offers.index') }}" aria-expanded="false">
+              <a class="sidebar-link" href="{{ route('admin.offres.index') }}" aria-expanded="false">
                 <span>
                   <i class="ti ti-folder"></i>
                 </span>
